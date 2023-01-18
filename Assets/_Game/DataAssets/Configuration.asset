@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d24f77c5e288e42b8b33642a453d8e, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
-  m_FloatVarthrottlePower: {fileID: 11400000, guid: a9e59c84101e38e459b7c72a3266165c, type: 2}
-  m_FloatVar_rotationPower: {fileID: 11400000, guid: d00dad6787a683549ad37f3e61f4594f, type: 2}
-  _throttlePowerSimple: 68.3
-  _rotationPowerSimple: 0
+  Variables:
+  - {fileID: 11400000, guid: d00dad6787a683549ad37f3e61f4594f, type: 2}
+  - {fileID: 11400000, guid: a9e59c84101e38e459b7c72a3266165c, type: 2}
+  - {fileID: 11400000, guid: a29c193f4c943534ab4728aacaf9839a, type: 2}

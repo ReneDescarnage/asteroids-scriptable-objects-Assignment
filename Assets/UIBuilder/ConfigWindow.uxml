@@ -1,8 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:VisualElement name="ChangableSettings" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-        <ui:Slider picking-mode="Ignore" label="ThrottlePower" value="42" high-value="100" binding-path="_value" name="ThrottlePower" />
-        <ui:Slider picking-mode="Ignore" label="RotationPower" value="42" high-value="100" binding-path="_value" name="RotationPower" />
-        <ui:Slider picking-mode="Ignore" label="ThrottlePower" value="42" high-value="100" binding-path="_value" name="ThrottlePower" />
-        <ui:Slider picking-mode="Ignore" label="ThrottlePower" value="42" high-value="100" binding-path="_value" name="ThrottlePower" />
+        <ui:Slider picking-mode="Ignore" label="ThrottlePower" value="42" high-value="10" binding-path="_value" name="ThrottlePower" />
+        <ui:Slider picking-mode="Ignore" label="RotationPower" value="42" high-value="10" binding-path="_value" name="RotationPower" />
+        <ui:Slider picking-mode="Ignore" label="HealthObservable" value="42" high-value="10" binding-path="_value" name="HealthObservable" />
     </ui:VisualElement>
 </ui:UXML>

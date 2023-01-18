@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace DefaultNamespace.GameEvents
-{
+{   [AddComponentMenu("Game Event Listener")]
     public class GameEventListener : MonoBehaviour
     {
         [SerializeField] private GameEvent _gameEvent;

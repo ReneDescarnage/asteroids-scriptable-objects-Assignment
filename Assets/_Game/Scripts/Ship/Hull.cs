@@ -8,7 +8,6 @@ namespace Ship
     {
         //[SerializeField] private IntVariable _health;
         [SerializeField] private ScriptableEventIntReference _onHealthChangedEvent;
-        [SerializeField] private IntReference _healthRef;
         [SerializeField] private IntObservable _healthObservable;
         
         private void OnCollisionEnter2D(Collision2D other)

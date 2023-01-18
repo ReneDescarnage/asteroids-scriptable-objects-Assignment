@@ -23,7 +23,7 @@ public class ConfigEditorWindow : EditorWindow {
     }
 
     private void OnEnable() {
-        Config = AssetDatabase.LoadAssetAtPath<Configuration>("Assets/_Game/Scripts/DataAssets/Configuration.asset");
+        Config = AssetDatabase.LoadAssetAtPath<Configuration>("Assets/_Game/DataAssets/Configuration.asset");
         var serializedObj = new SerializedObject(Config);
         rootVisualElement.Bind(serializedObj);
     }
@@ -34,7 +34,7 @@ public class ConfigEditorWindow : EditorWindow {
         
         UXMLFile.CloneTree(rootVisualElement);
         IEnumerable<VisualElement> iteratable = rootVisualElement.Q("ChangableSettings").Children();
-        Debug.Log(iteratable.Count());
+        //Debug.Log(iteratable.Count());
         foreach (var element in iteratable) {
             if (element == null) {
                 continue;
@@ -45,9 +45,7 @@ public class ConfigEditorWindow : EditorWindow {
     }
 
     private void BindElement(VisualElement element) {
-        if (element == null) {
-            return;
-        }
+     
         element = rootVisualElement.Q(element.name);
         ScriptableObject objRef = Config.FindSOVariable(element.name);
         if (objRef == null) {
