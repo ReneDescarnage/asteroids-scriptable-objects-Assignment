@@ -1,11 +1,12 @@
 ﻿using System;
+using DataAssets;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Asteroids
 {
-    public class AsteroidSpawner : MonoBehaviour
-    {
+    public class AsteroidSpawner : MonoBehaviour {
+
         [SerializeField] private Asteroid _asteroidPrefab;
         [SerializeField] private float _minSpawnTime;
         [SerializeField] private float _maxSpawnTime;

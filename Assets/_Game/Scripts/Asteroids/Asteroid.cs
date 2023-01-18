@@ -9,7 +9,6 @@ namespace Asteroids
     public class Asteroid : MonoBehaviour
     {
         [SerializeField] private ScriptableEventInt _onAsteroidDestroyed;
-        
         [Header("Config:")]
         [SerializeField] private float _minForce;
         [SerializeField] private float _maxForce;
@@ -25,6 +24,10 @@ namespace Asteroids
         private Vector3 _direction;
         private int _instanceId;
 
+        private void Awake() {
+            
+            
+        }
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();

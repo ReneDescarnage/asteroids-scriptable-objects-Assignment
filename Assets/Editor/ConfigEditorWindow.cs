@@ -13,7 +13,7 @@ using UnityEngine.Serialization;
 public class ConfigEditorWindow : EditorWindow {
     
     [SerializeField] private VisualTreeAsset UXMLFile;
-
+    private List<VisualElement> ChangableElements = null;
     [FormerlySerializedAs("Config")] public Configuration Config = null;
 
     [MenuItem(("Tools/Config Editor"))]
@@ -33,14 +33,18 @@ public class ConfigEditorWindow : EditorWindow {
         UXMLFile = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UIBuilder/ConfigWindow.uxml");
         
         UXMLFile.CloneTree(rootVisualElement);
-        IEnumerable<VisualElement> iteratable = rootVisualElement.Q("ChangableSettings").Children();
-        //Debug.Log(iteratable.Count());
-        foreach (var element in iteratable) {
-            if (element == null) {
-                continue;
-            }
-            BindElement(element);
+        if (ChangableElements == null) {
+            ChangableElements = rootVisualElement.Query(className: "BindableElement").ToList();
         }
+        IEnumerable<VisualElement> iteratable = rootVisualElement.Q("ChangableSettings").Children();
+        BindElements(iteratable);
+        // //Debug.Log(iteratable.Count());
+        // foreach (var element in ChangableElements) {
+        //     if (element == null) {
+        //         continue;
+        //     }
+        //     BindElement(element);
+        // }
         
     }
 
@@ -53,5 +57,14 @@ public class ConfigEditorWindow : EditorWindow {
         }
         var serializedObject = new SerializedObject(Config.FindSOVariable(element.name));
         element.Bind(serializedObject);    
+    }  
+    private void BindElements(IEnumerable<VisualElement> iteratable) {
+        foreach (var element in ChangableElements) {
+            if (element == null) {
+                continue;
+            }
+            BindElement(element);
+        }
+      
     }
 }

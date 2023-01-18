@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395422e491154d9abcceab7c93aaef7d, type: 3}
-  m_Name: ThrottlePower
+  m_Script: {fileID: 11500000, guid: 6f38b9d37c3e400ca179cd323a754360, type: 3}
+  m_Name: LaserSpeed
   m_EditorClassIdentifier: 
-  _value: 10
+  _value: 0.6
+  _developerDescription: 

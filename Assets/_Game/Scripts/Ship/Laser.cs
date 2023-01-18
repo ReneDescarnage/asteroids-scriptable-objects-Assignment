@@ -1,6 +1,7 @@
 using System;
 using Asteroids;
 using DefaultNamespace.ScriptableEvents;
+using DefaultNamespace.Vars;
 using RuntimeSets;
 using UnityEngine;
 
@@ -13,26 +14,32 @@ namespace Ship
         private LaserRuntimeSet _lasers;
 
         [Header("Values:")]
-        [SerializeField] private float _speed = 0.2f;
+        //[SerializeField] private float _speed = 0.2f;
+        [SerializeField] private FloatVar _speedValue;
 
         private Rigidbody2D _rigidbody;
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _lasers.Add(gameObject);
+            _lasers.Add(this);
             Debug.Log(" Amount Of Lasers: " + _lasers.Amount);
         }
 
         private void OnDestroy()
         {
-            _lasers.Remove(gameObject);
+            _lasers.Remove(this);
         }
 
-        private void FixedUpdate()
+        // private void FixedUpdate()
+        // {
+        //     var trans = transform;
+        //     _rigidbody.MovePosition(trans.position + trans.up * _speedValue.Value);
+        // }
+        public void GameUpdate()
         {
             var trans = transform;
-            _rigidbody.MovePosition(trans.position + trans.up * _speed);
+            _rigidbody.MovePosition(trans.position + trans.up * _speedValue.Value);
         }
     }
 }
