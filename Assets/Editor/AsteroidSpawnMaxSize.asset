@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f38b9d37c3e400ca179cd323a754360, type: 3}
-  m_Name: MaxForce
+  m_Name: AsteroidSpawnMaxSize
   m_EditorClassIdentifier: 
-  _value: 10
+  _value: 0
   _developerDescription: 

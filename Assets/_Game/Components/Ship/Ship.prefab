@@ -51,6 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _throttlePower: {fileID: 11400000, guid: a9e59c84101e38e459b7c72a3266165c, type: 2}
   _rotationPower: {fileID: 11400000, guid: d00dad6787a683549ad37f3e61f4594f, type: 2}
+  _commandKeys:
+  - {fileID: 11400000, guid: 7153a7b5ad941494db62ba28f687169a, type: 2}
+  - {fileID: 11400000, guid: 0e4c064c94f226945a1b9bbd66cc4f8f, type: 2}
+  - {fileID: 11400000, guid: 3eefa2136b250a24f9e71e483e7f4393, type: 2}
 --- !u!114 &2970632031999273633
 MonoBehaviour:
   m_ObjectHideFlags: 0

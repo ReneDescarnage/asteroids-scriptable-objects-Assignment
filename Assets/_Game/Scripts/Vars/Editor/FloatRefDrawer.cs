@@ -7,14 +7,14 @@ namespace DefaultNamespace.Vars.Editor
     [CustomPropertyDrawer(typeof(FloatRef))]
     public class FloatRefDrawer : UnityEditor.PropertyDrawer
     {
-        private readonly string[] popupOptions = {"Use Simple", "Use Variable"};
+        private readonly string[] _popupOptions = {"Use Simple", "Use Variable"};
 
         /// <summary> Cached style to use to draw the popup button. </summary>
-        private GUIStyle popupStyle;
+        private GUIStyle _popupStyle;
         
-        SerializedProperty useSimpleProperty;
-        SerializedProperty variableProperty; 
-        SerializedProperty simpleValueProperty; 
+        SerializedProperty _useSimpleProperty;
+        SerializedProperty _variableProperty; 
+        SerializedProperty _simpleValueProperty; 
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -28,23 +28,23 @@ namespace DefaultNamespace.Vars.Editor
             
             // Draw button
             // Create Style
-            popupStyle ??= new GUIStyle(GUI.skin.GetStyle("PaneOptions"))
+            _popupStyle ??= new GUIStyle(GUI.skin.GetStyle("PaneOptions"))
             {
                 imagePosition = ImagePosition.ImageOnly
             };
 
             // Calculate Button rect
             var buttonRect = new Rect(position);
-            buttonRect.yMin += popupStyle.margin.top;
-            buttonRect.width = popupStyle.fixedWidth + popupStyle.margin.right;
+            buttonRect.yMin += _popupStyle.margin.top;
+            buttonRect.width = _popupStyle.fixedWidth + _popupStyle.margin.right;
         
             position.xMin = buttonRect.xMax;
             
-            var selectedIndex = useSimpleProperty.boolValue ? 0 : 1;
-            var result = EditorGUI.Popup(buttonRect, selectedIndex , popupOptions, popupStyle);
-            useSimpleProperty.boolValue = result == 0;
+            var selectedIndex = _useSimpleProperty.boolValue ? 0 : 1;
+            var result = EditorGUI.Popup(buttonRect, selectedIndex , _popupOptions, _popupStyle);
+            _useSimpleProperty.boolValue = result == 0;
 
-            var propertyToDraw = useSimpleProperty.boolValue ? simpleValueProperty : variableProperty;
+            var propertyToDraw = _useSimpleProperty.boolValue ? _simpleValueProperty : _variableProperty;
             EditorGUI.PropertyField(position, propertyToDraw, GUIContent.none);
             
             EditorGUI.EndProperty();
@@ -109,9 +109,9 @@ namespace DefaultNamespace.Vars.Editor
         }
         private void GetProperties(SerializedProperty property)
         {
-            useSimpleProperty = property.FindPropertyRelative(FloatRef.UseSimpleValueName);
-            variableProperty = property.FindPropertyRelative(FloatRef.VariableName);
-            simpleValueProperty = property.FindPropertyRelative(FloatRef.SimpleValueName);
+            _useSimpleProperty = property.FindPropertyRelative(FloatRef.UseSimpleValueName);
+            _variableProperty = property.FindPropertyRelative(FloatRef.VariableName);
+            _simpleValueProperty = property.FindPropertyRelative(FloatRef.SimpleValueName);
         }
 
         private static Rect DrawPropertyName(Rect position, SerializedProperty property, GUIContent label)
@@ -123,7 +123,7 @@ namespace DefaultNamespace.Vars.Editor
 
         private bool ShowPopup(SerializedProperty useConstant, Rect buttonRect)
         {
-            var result = EditorGUI.Popup(buttonRect, useConstant.boolValue ? 0 : 1, popupOptions, popupStyle);
+            var result = EditorGUI.Popup(buttonRect, useConstant.boolValue ? 0 : 1, _popupOptions, _popupStyle);
             return result == 0;
         } 
     }

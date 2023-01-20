@@ -1,4 +1,5 @@
 using DefaultNamespace.ScriptableEvents;
+using DefaultNamespace.Vars;
 using UnityEngine;
 using Variables;
 using Random = UnityEngine.Random;
@@ -10,12 +11,18 @@ namespace Asteroids
     {
         [SerializeField] private ScriptableEventInt _onAsteroidDestroyed;
         [Header("Config:")]
-        [SerializeField] private float _minForce;
-        [SerializeField] private float _maxForce;
-        [SerializeField] private float _minSize;
-        [SerializeField] private float _maxSize;
-        [SerializeField] private float _minTorque;
-        [SerializeField] private float _maxTorque;
+        // [SerializeField] private float _minForce;
+        // [SerializeField] private float _maxForce;
+        // [SerializeField] private float _minSize;
+        // [SerializeField] private float _maxSize;
+        // [SerializeField] private float _minTorque;
+        // [SerializeField] private float _maxTorque;
+        [SerializeField] private FloatVar _minForce;
+        [SerializeField] private FloatVar _maxForce;
+        [SerializeField] private FloatVar _minSize;
+        [SerializeField] private FloatVar _maxSize;
+        [SerializeField] private FloatVar _minTorque;
+        [SerializeField] private FloatVar _maxTorque;
 
         [Header("References:")]
         [SerializeField] private Transform _shape;
@@ -84,13 +91,16 @@ namespace Asteroids
 
         private void AddForce()
         {
-            var force = Random.Range(_minForce, _maxForce);
+            float force;
+            force = _minForce.Value > _maxForce.Value ? Random.Range(_maxForce.Value, _minForce.Value) : 
+                                                        Random.Range(_minForce.Value, _maxForce.Value);
             _rigidbody.AddForce( _direction * force, ForceMode2D.Impulse);
         }
 
-        private void AddTorque()
-        {
-            var torque = Random.Range(_minTorque, _maxTorque);
+        private void AddTorque() {
+            float torque;
+            torque = _minTorque.Value > _maxTorque.Value ? Random.Range(_maxTorque.Value, _minTorque.Value) : 
+                                                           Random.Range(_minTorque.Value, _maxTorque.Value);
             var roll = Random.Range(0, 2);
 
             if (roll == 0)
@@ -101,7 +111,9 @@ namespace Asteroids
 
         private void SetSize()
         {
-            var size = Random.Range(_minSize, _maxSize);
+            float size;
+            size = _minSize.Value > _maxSize.Value ? Random.Range(_maxSize.Value, _minSize.Value) : 
+                Random.Range(_minSize.Value, _maxSize.Value);
             _shape.localScale = new Vector3(size, size, 0f);
         }
     }

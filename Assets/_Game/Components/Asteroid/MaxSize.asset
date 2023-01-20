@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f38b9d37c3e400ca179cd323a754360, type: 3}
   m_Name: MaxSize
   m_EditorClassIdentifier: 
-  _value: 4.32
+  _value: 1.4
   _developerDescription: 

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using DataAssets;
+using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Networking;
 using Random = UnityEngine.Random;
 
 namespace Asteroids
@@ -12,6 +15,8 @@ namespace Asteroids
         [SerializeField] private float _maxSpawnTime;
         [SerializeField] private int _minAmount;
         [SerializeField] private int _maxAmount;
+        [SerializeField] private EnumVariable SpawnDirections;
+        private int[] _allowedSpawnDirections;
         
         private float _timer;
         private float _nextSpawnTime;
@@ -28,6 +33,7 @@ namespace Asteroids
         private void Start()
         {
             _camera = Camera.main;
+            GetAllowedDirections();
             Spawn();
             UpdateNextSpawnTime();
         }
@@ -71,19 +77,42 @@ namespace Asteroids
             }
         }
 
-        private static SpawnLocation GetSpawnLocation()
-        {
-            var roll = Random.Range(0, 4);
+        private void OnEnable() {
+            //ArrayList
+        }
 
-            return roll switch
+        private SpawnLocation GetSpawnLocation()
+        {
+            var roll = Random.Range(0, _allowedSpawnDirections.Length);
+            int result = _allowedSpawnDirections[roll];
+            //Debug.Log("GetSpawnLocation roll was " + result);
+            return result switch
             {
                 1 => SpawnLocation.Bottom,
                 2 => SpawnLocation.Left,
                 3 => SpawnLocation.Right,
                 _ => SpawnLocation.Top
             };
+            
         }
 
+        private void GetAllowedDirections() {
+            int flagCount = 0;
+            for (int i = 0; i < 4; i++) {
+                if(SpawnDirections.AllowedDirections.HasFlag((SpawnDirection)(1 << i)))
+                    flagCount++;
+
+            }
+
+            _allowedSpawnDirections = new int[flagCount];
+            int current = 0;
+            for (int i = 0; i < 4; i++) {
+                if (SpawnDirections.AllowedDirections.HasFlag((SpawnDirection)(1 << i))) {
+                    _allowedSpawnDirections[current] = i;
+                    current++;
+                }
+            }
+        }
         private Vector3 GetStartPosition(SpawnLocation spawnLocation)
         {
             var pos = new Vector3 { z = Mathf.Abs(_camera.transform.position.z) };

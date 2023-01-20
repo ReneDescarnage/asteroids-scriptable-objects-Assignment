@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f38b9d37c3e400ca179cd323a754360, type: 3}
   m_Name: MinSize
   m_EditorClassIdentifier: 
-  _value: 0
+  _value: 0.58
   _developerDescription: 

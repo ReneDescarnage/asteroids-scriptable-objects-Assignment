@@ -6,7 +6,7 @@ namespace DefaultNamespace.Vars
     [CreateAssetMenu(fileName = "new FloatVar", menuName = "SOs/Float Var")]
     public class FloatVar : ScriptableObject
     {
-        [Range(0f, 20f)]
+        [Range(0f, 10f)]
         [SerializeField] private float _value;
 
         [TextArea(3, 6)]

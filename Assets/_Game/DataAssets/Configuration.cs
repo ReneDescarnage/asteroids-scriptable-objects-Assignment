@@ -11,7 +11,6 @@ namespace DataAssets {
         public ScriptableObject FindSOVariable(string variableName) {
             for (int i = 0; i < Variables.Length; i++) {
                 ScriptableObject obj = Variables[i];
-                //Debug.Log("Name of variable array member is " + obj.variableName);
                 if (obj.name.Equals(variableName)) {
                     return Variables[i];
                 }

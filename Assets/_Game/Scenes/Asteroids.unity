@@ -123,27 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &227101902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2369577490094637426, guid: c71243f12cdfc2a4282f1805a6098327, type: 3}
-  m_PrefabInstance: {fileID: 7101966234704262264}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &227101905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227101902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92be6794e2d44eaf8f34dd73e7e77ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 0}
-  _response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +325,7 @@ MonoBehaviour:
   _maxSpawnTime: 4
   _minAmount: 1
   _maxAmount: 2
+  SpawnDirections: {fileID: 11400000, guid: fd24b54e0af418f4d88c5076f28655ce, type: 2}
 --- !u!4 &1867257717
 Transform:
   m_ObjectHideFlags: 0
@@ -437,6 +417,22 @@ PrefabInstance:
       propertyPath: _throttlePowerSimple
       value: 2.76
       objectReference: {fileID: 0}
+    - target: {fileID: 2970632031999273638, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
+      propertyPath: _commandKeys.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970632031999273638, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
+      propertyPath: _commandKeys.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7153a7b5ad941494db62ba28f687169a, type: 2}
+    - target: {fileID: 2970632031999273638, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
+      propertyPath: _commandKeys.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e4c064c94f226945a1b9bbd66cc4f8f, type: 2}
+    - target: {fileID: 2970632031999273638, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
+      propertyPath: _commandKeys.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3eefa2136b250a24f9e71e483e7f4393, type: 2}
     - target: {fileID: 2970632031999273639, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
       value: 3
@@ -575,8 +571,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2369577490094637426, guid: c71243f12cdfc2a4282f1805a6098327, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 227101905}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c71243f12cdfc2a4282f1805a6098327, type: 3}

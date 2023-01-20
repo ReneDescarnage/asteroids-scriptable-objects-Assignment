@@ -1,13 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:VisualElement name="ChangableSettings" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: stretch; flex-direction: column;">
         <ui:Label tabindex="-1" text="Ship Configuration" display-tooltip-when-elided="true" name="ShipConfigurationArea" style="margin-top: 5px; margin-left: 5px; -unity-font-style: normal; font-size: 20px;" />
-        <ui:VisualElement name="ShipConfiguration" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: -34px;">
+        <ui:VisualElement name="ShipConfiguration" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 61px;">
             <ui:Slider picking-mode="Ignore" label="ThrottlePower" value="42" high-value="10" binding-path="_value" name="ThrottlePower" class="BindableElement" />
             <ui:Slider picking-mode="Ignore" label="RotationPower" value="42" high-value="10" binding-path="_value" name="RotationPower" class="BindableElement" />
-            <ui:Slider picking-mode="Ignore" label="StartingHealth" value="42" high-value="10" binding-path="_value" name="StartingHealth" class="BindableElement" />
+            <ui:Slider picking-mode="Ignore" label="Health Observable" value="42" high-value="10" binding-path="_value" name="StartingHealth" class="BindableElement" />
             <ui:Slider picking-mode="Ignore" label="LaserSpeed" value="42" high-value="10" binding-path="_value" name="LaserSpeed" class="BindableElement" />
+            <ui:TextField picking-mode="Ignore" label="UpKey" name="UpKey" binding-path="_value" class="BindableElement" />
+            <ui:TextField picking-mode="Ignore" label="LeftKey" name="LeftKey" binding-path="_value" class="BindableElement" />
+            <ui:TextField picking-mode="Ignore" label="RightKey" name="RightKey" binding-path="_value" class="BindableElement" />
         </ui:VisualElement>
-        <ui:VisualElement name="AsteroidConfigurationArea" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="AsteroidConfigurationArea" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 212px;">
             <ui:Label tabindex="-1" text="Asteroid Configuration" display-tooltip-when-elided="true" name="AsteroidConfigurationArea" style="margin-top: 5px; margin-left: 5px; -unity-font-style: normal; font-size: 20px;" />
             <ui:Slider picking-mode="Ignore" label="MinForce" value="42" high-value="10" binding-path="_value" name="MinForce" class="BindableElement" />
             <ui:Slider picking-mode="Ignore" label="MaxForce" value="42" high-value="10" binding-path="_value" name="MaxForce" class="BindableElement" />
@@ -15,6 +18,8 @@
             <ui:Slider picking-mode="Ignore" label="MaxTorque" value="42" high-value="10" binding-path="_value" name="MaxTorque" class="BindableElement" />
             <ui:Slider picking-mode="Ignore" label="MinSize" value="42" high-value="10" binding-path="_value" name="MinSize" class="BindableElement" />
             <ui:Slider picking-mode="Ignore" label="MaxSize" value="42" high-value="10" binding-path="_value" name="MaxSize" class="BindableElement" />
+            <ui:Slider picking-mode="Ignore" label="newvar" value="42" high-value="10" binding-path="_value" name="NewVar" class="BindableElement" />
+            <uie:EnumFlagsField label="AllowedDirections" type="Asteroids.SpawnDirection, Assembly-CSharp" name="AsteroidDirections" binding-path="AllowedDirections" class="BindableElement" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
